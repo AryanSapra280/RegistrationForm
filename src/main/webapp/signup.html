@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Signup</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+
+    </script>
+
+</head>
+<body style="background:url(images/signupPage.avif);background-size:cover;background-attachment:fixed">
+
+<div class="container">
+  <div class="row">
+    <div class ="col s6 offset-m3">
+      <div class="card blue-grey darken-2">
+        <div class="card-content">
+          <h3 style="margin-top:10px;" class="center-align">Register here!!</h3>
+          <div class="form center-align">
+              <form action="Register" method="post" >
+                  <input type="text" name="username" placeholder="enter your name"/>
+                  <input type="password" name="password" placeholder="enter your password"/>
+                  <input type="email" name="email" placeholder="enter your email"/>
+                  <button type="submit" class="btn">Submit</button>
+              </form>
+          </div>
+            <div class="progress center-align" style="margin-top:10px;display:none">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    $(document).ready(function(){
+        console.log("I am jquery");
+    })
+</script>
+</body>
+</html>
