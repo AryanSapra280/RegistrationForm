@@ -24,18 +24,19 @@
 <div class="container">
   <div class="row">
     <div class ="col s6 offset-m3">
+        <h3 id="success"></h3>
       <div class="card blue-grey darken-2">
         <div class="card-content">
-          <h3 style="margin-top:10px;" class="center-align">Register here!!</h3>
+          <h3 id="registerHere" style="margin-top:10px;" class="center-align">Register here!!</h3>
           <div class="form center-align">
-              <form action="Register" method="post" >
+              <form id = "myForm" action="Register" method="post" >
                   <input type="text" name="username" placeholder="enter your name"/>
                   <input type="password" name="password" placeholder="enter your password"/>
                   <input type="email" name="email" placeholder="enter your email"/>
                   <button type="submit" class="btn">Submit</button>
               </form>
           </div>
-            <div class="progress center-align" style="margin-top:10px;display:none">
+            <div id="loader" class="progress center-align" style="margin-top:10px;display:none">
                 <div class="indeterminate"></div>
             </div>
         </div>
@@ -44,9 +45,35 @@
   </div>
 </div>
 <script>
-    $(document).ready(function(){
-        console.log("I am jquery");
-    })
+
+
+
+        $("#myForm").on('submit',function(event){
+            event.preventDefault();
+            var f = $(this).serialize();
+            console.log(f);
+            $("#loader").show();
+            $("#myForm").hide();
+            $("#registerHere").html("Please wait!!");
+            $.ajax({
+                url:"Register",
+                data:f,
+                type:'Post',
+                success: function(data, textStatus, jqXHR) {
+                    console.log("success");
+                    $("#registerHere").html("Successfully Registered!!").css('color','red');
+                    $("#loader").hide();
+                    $("#myForm").show();
+
+                },
+                error: function(data, textStatus, jqXHR) {
+                    console.log("failed");
+                    $("#registerHere").html("Oh no! something went wrong!!");
+                    $("#loader").hide();
+                    $("#myForm").show();
+                }
+            })
+        })
 </script>
 </body>
 </html>
